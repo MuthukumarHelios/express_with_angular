@@ -1,0 +1,19 @@
+
+<html ng-app = 'app'>
+  <head>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>-->
+              <script src = "https://code.angularjs.org/1.2.16/angular.min.js"></script>
+              <script src = "javascripts/controller.js"></script>
+              <script src = "javascripts/service.js"></script>
+              <script src = "javascripts/main.js"></script>
+   </head>
+   <body ng-controller = "maincontroller">
+        <h3>{{todo1.length}}<h3>
+             <div ng-repeat = "todo in todo1">
+                <h4>{{todo.text}}</h4>
+             </div>
+               <input type = "text"  ng-model = "formdata.text">
+               <button type = "submit" ng-click = "createTodo()">click me</button>
+                 <h1>just and index page</h1>
+    </body>
+</html>
