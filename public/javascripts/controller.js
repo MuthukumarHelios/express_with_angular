@@ -2,27 +2,41 @@
 
 console.log("angular controller");
 angular.module('todoController', []).
-    controller('maincontroller',['$scope', '$http', 'todo1', function($scope, $http, todo1){
+    controller('maincontroller',['$scope', '$http', 'user', function($scope, $http, user){
        //declaring the data in the empty hash
-      console.log(todo1);
+      console.log(user);
       $scope.formdata = {};
-      todo1.get().success(function(data){
-        $scope.todo1 = data;
+      user.get().success(function(data){
+        $scope.user = data;
       });
-      todo1.get().error(function(data){
+      //error hander is used but called the get service
+      user.get().error(function(data){
         console.log("error occured in get method");
       });
-
+    //meant the register
     $scope.createTodo = function(){
            //create todo check whether the formdata is recieved or not
-      console.log($scope.formdata.text);
-      if($scope.formdata.text !== undefined){
-              todo1.create($scope.formdata).
-                success(function (data) {
-                  console.log("data==> from angular create function",data);
-                           $scope.formdata = {};//clear the todo list
-                            $scope.todo1 = data;//new todos
-                      });
-      }
+    if($scope.formdata.name && $scope.formdata.password && $scope.formdata.mobile && $scope.formdata.email !== undefined){
+        user.create($scope.formdata).
+            success(function (data) {
+              console.log("data==> from angular create function", data);
+                       $scope.formdata = {};//clear the todo list
+                       $scope.user = data;//new todos
+                  });
+              }
     };
+    $scope.loginUser = function(){
+      console.log($scope.formdata);
+      user.login($scope.formdata).success(function(data){
+             $scope.formdata = {};
+             //$scope.user = data is the json request from the express controller
+             $scope.user = data;
+      if(!$scope.user.error){
+           console.log($scope.user);
+           console.log("loggged in");
+      }
+      else{console.log("not success fully logged in");}
+      });
+
+    }
   }]);

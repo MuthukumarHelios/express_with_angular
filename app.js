@@ -14,12 +14,9 @@ var users = require('./routes/users');
 var multer = require('multer');
 var app = express();
 var path = require('path');
+
 var controller = require('./routes/controller.js')
 var methodOverride  =  require('method-override');
-
-
-console.log('after require .db');
-//console.log(db.todo1);
 // view engine setup
  app.set('views', path.join(__dirname, 'views'));
  // app.set('view engine', 'jade');
@@ -42,16 +39,16 @@ app.use('/users', users);
 console.log("after /users");
 //go along with routes here for the express
 
-app.get('/api/todos'  ,   controller.display);//with find method in index.js controoler
-app.post('/api/todos' ,   controller.create);
-app.get('*', function (req, res){
-     console.log("general file to display all angular content");
+app.get('/api/todos'   ,   controller.display);//with find method in index.js controoler
+app.post('/api/todos'  ,    controller.create);
+app.get('/register', function (req, res){
+     console.log("general file to display register angular");
        res.sendFile(path.join(__dirname, './', 'views', 'index.html'));
-       //res.sendFile(__dirname + './views/index.html'); // load the single view file (angular will handle the page changes on the front-end)
     });
-app.get('/test',  function(req, res){
+app.post('/api/login'   ,    controller.login);
+app.get('/login',  function(req, res){
   console.log("general test file");
-  res.sendFile(path.join(__dirname, './', 'views', 'index.html'));
+  res.sendFile(path.join(__dirname, './', 'views', 'login.html'));
 
 //  res.sendFile(__dirname + '../views/index.html');
 });
