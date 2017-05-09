@@ -14,7 +14,7 @@ angular.module('todoController', []).
         console.log("error occured in get method");
       });
     //meant the register
-    $scope.createTodo = function(){
+    $scope.registerUser = function(){
            //create todo check whether the formdata is recieved or not
     if($scope.formdata.name && $scope.formdata.password && $scope.formdata.mobile && $scope.formdata.email !== undefined){
         user.create($scope.formdata).
@@ -31,6 +31,7 @@ angular.module('todoController', []).
              $scope.formdata = {};
              //$scope.user = data is the json request from the express controller
              $scope.user = data;
+             console.log($scope.user.error);
       if(!$scope.user.error){
            console.log($scope.user);
            console.log("loggged in");

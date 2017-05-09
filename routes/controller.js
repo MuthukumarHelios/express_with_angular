@@ -44,26 +44,44 @@ exports.create =  function(req, res){
      user.findOne({email: req.body.email}, function(err, rows){
           console.log(rows);
         if(err){res.json("error occured==> in db");}
+
          else if(rows == null){res.json({error: true,
-                                         error_message:"not present"});}
+                                         message:"not a valid credentials"});}
            else{
                  bcrypt.compare(password, rows.password, function(err, callback){
-                      if(err){console.log("error occured while comparing password");
-                      res.json({error: true,
-                                error_message:"mongo exception"});
+                  if(err){
+                    console.log("error occured while comparing password");
+                       //comparing some other exceptions
+                               res.json({error: true,
+                                message:"not a valid credentials"});
                      }
-                else if(callback){
+                   else if(callback){
                   //if the credential are satisfied
-                        res.json({error: callback,
-                                  error_message:"success"});
+                        console.log(callback);
+                         console.log("after the callback");
+                        res.json({error: !callback,
+                                  message:"login succesful"});
                             }
                      else{
-                       res.json({error: callback,
-                                error_message:"credentials are not match"}
-                              );
+                       //after compare the result is not match
+                       res.json({error: !callback,
+                                message:"not a valid credentials"});
                             }
                   });
                 }
            });
      console.log("just a login controller form express");
+  };
+
+  exports.delete = function(req, res){
+    console.log("just a delete controller");
+      user.remove({_id:req.body.id}, function(err, rows){
+        console.log("inside query");
+        if(err){
+            console.log("not valid credentials");
+          res.json({error:true, message: "not an vaid id"});}
+        else{
+         console.log("success fully delted in else condition");
+          res.json({error: false, message:  "success fully deleted", data: rows});}
+      });
   };

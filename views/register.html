@@ -1,0 +1,74 @@
+
+<html ng-app = 'app'>
+        <head>
+       <!--css files are going to be loaded -->
+       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+       <link href="plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
+       <title>Welcome</title>
+ <!--Import Google Icon Font-->
+       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <!--Import materialize.css-->
+       <link type="text/css" rel="stylesheet" href="plugins/materialize/css/materialize.min.css"  media="screen"/>
+ <!-- dataTables -->
+       <link href="plugins/datatables/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+       <link href="plugins/datatables/css/responsive.bootstrap.min.css" rel="stylesheet" type="text/css">
+ <!--Template style-->
+       <link href="css/style.css" rel="stylesheet">
+
+
+       </head>
+  <body ng-controller = "maincontroller">
+          <div class="display-table">
+              <div class="vertical-middle">
+                  <div class="container">
+                      <div class="row margin-b-0">
+                          <div class="col s12 l4 offset-l4">
+                              <div class="card margin-b-0">
+                                  <div class="card-content">
+                                      <span class="card-title center-align">Login to Ultima</span>
+                                      <div class="row">
+                                             <form class="col s12 margin-b-0">
+                                                 <div class="input-field col s12">
+                                                     <input id="name" type="text" ng-model  = "formdata.name"  class="validate">
+                                                     <label for = ""  class="">name</label>
+                                                 </div>
+                                                 <div class="input-field col s12">
+                                                     <input id="password" type="password" ng-model  =  "formdata.password" class="validate">
+                                                     <label for=""  class="">Password</label>
+                                                 </div>
+                                                 <div class="input-field col s12">
+                                                     <input id="email" type="email" ng-model  =  "formdata.email" class="validate">
+                                                     <label for="email"  class="">Email</label>
+                                                 </div>
+                                                 <div class="input-field col s12 margin-b-20">
+                                                     <input id="mobile" ng-model    =  "formdata.mobile"  type="text" class="validate">
+                                                     <label for="mobile">mobile</label>
+                                                 </div>
+                                                 <div class="col s12 right-align margin-b-20">
+
+                                                     <button type="submit" class="waves-effect waves-light btn teal btn-block" ng-click = "registerUser()">create Account</button>
+                                                     <a href="login">login</a>
+
+                                                 </div>
+                                                 <div class="col s12 center-align">
+
+                                                 </div>
+                                             </form>
+                                        </div>
+                                  </div>
+                              </div>
+                         </div>
+                       </div>
+                  </div>
+              </div>
+          </div>
+<!-- script dependencies which include angular and jquery -->
+             <script src = "https://code.angularjs.org/1.2.16/angular.min.js"></script>
+             <script src = "javascripts/Angular/controller.js">           </script>
+             <script src = "javascripts/Angular/service.js">              </script>
+             <script src = "javascripts/Angular/main.js">                 </script>
+             <script type=  "text/javascript" src="jquery/jquery.min.js"> </script>
+             <script type=  "text/javascript" src="materialize/js/materialize.min.js"></script>
+             <script type=  "text/javascript" src="js/app.js"></script>
+    </body>
+</html>
