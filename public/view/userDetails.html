@@ -1,0 +1,101 @@
+
+<body>
+    <header id="header" class="top-bar">
+          <div class="navbar-fixed">
+                 <nav class="teal">
+                     <div class="nav-wrapper">
+                         <ul class="left">
+                      <li><h1 class="logo-wrapper center-align">User Details</h1></li>
+                         </ul>
+       <ul class="right col s9 m3 nav-right-menu">
+      <li><a class='dropdown-button  dropdown-right' href='#' data-activates='dropdown'><img src='images/avatar-03.png' alt="" width="40"></a></li>
+                         </ul>
+                         <!-- Dropdown Structure -->
+                         <ul id='dropdown' class='dropdown-content profile-dropdown'>
+                             <li><a href="#!">Profile</a></li>
+                             <li><a href="#!">Settings</a></li>
+                             <li class="divider"></li>
+                             <li><a href="#!">Logout</a></li>
+                         </ul>
+                     </div>
+                 </nav>
+
+             </div>
+         </header>
+         <!--\\\\\\\\\\\\\\\\\\\\\\\\\\\\End top bar header\\\\\\\\\\\\\\\\\\\\\\\-->
+
+  <!--\\\\\\\\\\\\\\\\\\\ Start left side nav\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+      <aside id="slide-out" class="side-nav black fixed">
+          <div class="side-nav-wrapper">
+              <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
+                  <li class="no-padding">
+    <a href="index.html" class="waves-effect waves-grey active"><i class="material-icons">dashboard</i>Dashboard</a>
+                  </li>
+                  <!--<li class="no-padding"><a class="waves-effect waves-grey" href="deals.html"><i class="material-icons">thumbs_up_down</i>Deals</a></li>-->
+                  <li class="no-padding"><a class="waves-effect waves-grey" href="users"><i class="material-icons">account_circle</i>Users</a></li>
+                  <li class="no-padding"><a class="waves-effect waves-grey" href="push-notification"><i class="material-icons">comment</i>Push Notification</a></li>
+                  <!--<li class="no-padding"><a class="waves-effect waves-grey" href="#"><i class="material-icons">redeem</i>Special Offers</a></li>-->
+                  <li class="no-padding"><a class="waves-effect waves-grey" href="employee.html"><i class="material-icons">accessible</i>Employees</a></li>
+                  <li class="no-padding"><a class="waves-effect waves-grey" href="feedback.html"><i class="material-icons">rate_review</i>Feedback</a></li>
+                  <li class="no-padding"><a class="waves-effect waves-grey" href="voucher.html"><i class="material-icons">class</i>Setup Voucher</a></li>
+                  <li class="no-padding"><a class="waves-effect waves-grey" href="brand.html"><i class="material-icons">card_travel</i>Brand</a></li>
+                  <!--<li class="no-padding"><a class="waves-effect waves-grey" href="#"><i class="material-icons">class</i>Voucher</a></li>-->
+        <li class="footer center"><span class="grey-text">&copy; 2016-2017. Company Name</span></li>
+              </ul>
+          </div>
+      </aside>
+      <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
+      <!--//////////////////End left side nav/////////////////-->
+ <!--\\\\\\\\\\\\\\\\\\\\\\\\\\\\Main content Start\\\\\\\\\\\\\\\\\\\\\\\-->
+     <main class="main-content">
+         <div class="page-content">
+             <div class="row margin-b-0">
+                 <div class="col s12">
+                     <div class="card">
+                         <div class="card-content">
+                             <h3 class="card-title">Users</h3>
+             <!-- id="datatable" -->
+             
+              <table id="datatable" class="bordered dt-responsive nowrap" >
+                                         <thead>
+                                             <tr>
+                                                 <th>User name</th>
+                                                 <th>Email</th>
+                                                 <th>Contact</th>
+                                             </tr>
+                                         </thead>
+                                         <tbody>
+                          <tr>
+                            <td>{{datagot.name}}</td> 
+                            <td>{{datagot.email}}</td>
+                            <td>{{datagot.mobile}}</td>                
+                        </tr>   
+               </table>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+ </div>
+
+<script src = "https://code.angularjs.org/1.2.16/angular.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-route.js"></script>
+
+   <script src = "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js">
+</script>
+<script src = "javascripts/Angular/controller.js"></script>
+<script src = "javascripts/Angular/service.js"></script>
+<script src = "javascripts/Angular/main.js"></script>
+<script type="text/javascript" src="plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="plugins/materialize/js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+             <!-- Datatables-->
+        <script src="plugins/datatables/js/jquery.dataTables.min.js"></script>
+        <script src="plugins/datatables/js/dataTables.responsive.min.js"></script>
+<!--data table plugins is used for  filter the table-->
+        <script>
+            $(document).ready(function () {
+                $('#datatable').dataTable();
+            });
+        </script>
+</body>

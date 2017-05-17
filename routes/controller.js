@@ -5,6 +5,7 @@ console.log("controller.js");
 var user                = mongoose.model('user');
 var group               = mongoose.model('group');
 var group_participants  = mongoose.model('group_participants');
+
 exports.display =  function(req, res){
             console.log("inside controller api/todos");
                  user.find(function(err, todo){
@@ -41,19 +42,21 @@ exports.userDetails = function(req, res){
    console.log("user details");
    console.log(req.params.id);
    user.findById({_id:req.params.id}, function(err, users){
-     console.log(err);
      console.log(users);
-     if(err){res.json("cannot find a particular id in db");}
-     else{res.json(users)}
+     if(err){
+     console.log("_id is not present in the db");
+      res.json("cannot find a particular id in db");
+    }
+     else{
+         res.json(users);
+      }
    });
 };
-
-  exports.login = function(req, res){
-      var password = req.body.password;
+exports.login = function(req, res){
+  var password = req.body.password;
      user.findOne({email: req.body.email}, function(err, rows){
           console.log(rows);
         if(err){res.json("error occured==> in db");}
-
          else if(rows == null){res.json({error: true,
                                          message:"not a valid credentials"});}
            else{

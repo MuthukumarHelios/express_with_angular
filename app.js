@@ -18,9 +18,8 @@ var path = require('path');
 var controller = require('./routes/controller.js')
 var methodOverride  =  require('method-override');
 // view engine setup
- app.set('views', path.join(__dirname, 'views'));
-  app.set('view engine', 'jade');
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 //meant for form data multipart
@@ -41,36 +40,39 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/users', users);
 //go along with routes here for the express
 app.get('/api/todos'   ,              controller.display);//with find method in index.js controoler
-app.get('/users', function(req, res){
-  res.sendFile(path.join(__dirname, './', 'views', 'users.html'));
-});
-app.get('/userDetails/display/:id', controller.userDetails);
-app.get('/userDetails/:id', function(req, res){
-  res.sendFile(path.join(__dirname, './', 'views', 'userDetails.html'));
-});
+// app.get('/users', function(req, res){
+//   res.sendFile(path.join(__dirname, './', 'views', 'users.html'));
+// });
+// app.get('/userDetails', function(req, res){
+//    res.sendFile(path.join(__dirname, './', 'views', 'userDetails.html'));
+// });
+app.post('/userDetails/display/:id', controller.userDetails);
+// app.get('/userDetails/:id', function(req, res){
+//   res.sendFile(path.join(__dirname, './', 'views', 'userDetails.html'));
+// });
 app.post('/api/todos'  ,    controller.create);
-app.get('/register', function (req, res){
-      console.log("general file to display register angular");
-       res.sendFile(path.join(__dirname, './', 'views', 'register.html'));
-    });
-
+    // app.get('/register', function (req, res){
+    //        console.log("general file to display register angular");
+    //        res.sendFile(path.join(__dirname, './', 'views', 'register.html'));
+    //  });
 app.post('/api/login'   ,             controller.login);
-app.get('/login',  function(req, res){
-  res.sendFile(path.join(__dirname, './', 'views', 'login.html'));
-});
-
+// app.get('/login',  function(req, res){
+//    res.sendFile(path.join(__dirname, './', 'views', 'login.html'));
+// });
 app.post('/api/delete'  ,             controller.delete);
 app.post('/api/edit',                 controller.edit);
-
 app.post('/api/group/create',         controller.createGroup);
-
 app.post('/api/group/participants',   controller.createParticipants);
 //image upload test using the multer package
 //the below 2 routes are not working for file upload
 app.post('/file',    upload.single('avatar'),         controller.file_uploads);
-app.get('/file_show', function(req, res){
-  res.sendFile(path.join(__dirname, './', 'views', 'file.html'));
+app.get('*', function(req, res){
+ res.sendFile(path.join(__dirname, './', 'views', 'index.html'));
 });
+
+// app.get('/file_show', function(req, res){
+//   res.sendFile(path.join(__dirname, './', 'views', 'file.html'));
+// });
 
 //display the dynamic html files
 // catch 404 and forward to error handler

@@ -1,0 +1,36 @@
+<body ng-controller = "maincontroller">
+     <div class="display-table">
+         <div class="vertical-middle">
+             <div class="container">
+                 <div class="row margin-b-0">
+                     <div class="col s12 l4 offset-l4">
+                         <div class="card margin-b-0">
+                             <div class="card-content">
+                                 <span class="card-title center-align">Login to ZoeChat</span>
+                                 <div class="row">
+                                        <form class="col s12 margin-b-0">
+                                          <div class="input-field col s12">
+  <input id="email" type="email" ng-model  =  "formdata.email" class="validate">
+            <!-- <label for="email"  class="">Email</label> -->
+                                         </div>
+          <div class="input-field col s12 margin-b-20">
+  <input id="password" ng-model = "formdata.password"  type="password" class="validate">
+                                               <!--  <label for="password">Password</label> -->
+                                            </div>
+                                            <div class="col s12 right-align margin-b-20">
+                                             <button type="submit" class="waves-effect waves-light btn teal btn-block"  ng-click = "loginUser()" ><a href = "/">sign in</a></button>
+                                            </div>
+                                            <div class="col s12 center-align">
+                                          <a href="register">Create an account</a>
+                                            </div>
+                                        </form>
+                                   </div>
+                             </div>
+                         </div>
+                    </div>
+                  </div>
+             </div>
+         </div>
+     </div>
+   </body>
+</html>
