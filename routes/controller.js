@@ -20,11 +20,13 @@ exports.display =  function(req, res){
 
 exports.create =  function(req, res){
  //this is going to meant for the register function for the login function
+  console.log('just a create function');
   var salt = bcrypt.genSaltSync(10);
        var password = req.body.password;
-         var hash = bcrypt.hashSync(password, salt);
+         var hash   = bcrypt.hashSync(password, salt);
+         console.log("before mongo query");
           user.create({
-                 name: req.body.name,  password: hash, email: req.body.email, mobile: req.body.mobile
+                name: req.body.name,  password: hash, email: req.body.email, mobile: req.body.mobile, participantId: req.body.participantId
                  }, function(err, todo){
                   console.log(todo);
                         if(err) {res.json(err);}
@@ -32,8 +34,8 @@ exports.create =  function(req, res){
                   //after creating this is used to set the dynamic content of the page
                   user.find(function(err, todos){
                       console.log("find",todos);
-                         if(err){ res.json("error");}
-                            else{ res.json(todos);}
+                         if(err){res.json("error");}
+                            else{res.json(todos);}
                       });
                     }
                 });
@@ -125,19 +127,21 @@ exports.edit = function(req, res){
             }
         });
 };
+
+//the api is used to create a group for the particular user with groups
 exports.createGroup = function(req, res){
   console.log("createGroup==>");
     group.create({
-         name: req.body.name,  image: req.files.image, groupId: req.body.groupId
-         }, function(err, todo){
-                  console.log(todo);
+        name: req.body.name, groupId: req.body.groupId, participantId: req.body.participantId
+        }, function(err, rows){
+                     console.log(rows);
                 if(err) {res.json(err);}
                  else{
           //after creating this is used to set the dynamic content of the page
-          group.find(function(err, todos){
-              console.log("find==>groups");
+          group.find(function(err, groups){
+              console.log("find==>groups", groups);
                  if(err){ res.json("error");}
-                    else{ res.json(todos);}
+                    else{ res.json(groups);}
               });
             }
         });
@@ -152,31 +156,21 @@ exports.createParticipants = function(req, res){
 
     else{
        group_participants.find(function(err, rows1){
+           console.log(rows1);
         if(err){res.json("its an db error")}
                 else{res.json(rows1)}
           });
        }
       });
 };
-
-//meant for file uploading
-var fs = require('fs');
-exports.file_uploads = function(req, res){
-  console.log("file uploads ==>controller");
-  var file = __dirname + "/file" + req.file.name;
-   fs.readFile(req.file.name, function(err, data){
-     console.log(data);
-     fs.writeFile(file, data, function(err){
-       if(err){
-         res.json("error ocuredd")
-       }else {
-         response = {
-           message: "file uploaded success",
-           filename: req.file.name
-         };
-       }
-       console.log(response);
-       res.json(response);
-     });
+exports.display_groups = function(req, res){
+   console.log("just display a users");
+     group.find(function(err, groups){
+           console.log(groups);
+     if(err){
+          res.json("not find in db");
+      } else{res.json(groups);}   
    });
 };
+
+//meant for file uploading

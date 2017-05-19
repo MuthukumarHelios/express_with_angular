@@ -54,17 +54,14 @@
                                          <thead>
                                              <tr>
                                                  <th>S.No</th>
-                                                 <th>User name</th>
-                                                 <th>Email</th>
-                                                 <th>Contact</th>
+                                                 <th>GROUP name</th>
                                              </tr>
                                          </thead>
                                          <tbody>
-        <tr ng-repeat = "todo in user" ng-click = "userDetails_scope(todo)">
+                                         <h2>groups{{group[0].name}}</h2>
+        <tr ng-repeat = "group in group">
                                     <td>{{$index + 1}}</td>
-                                    <td>{{todo.name}}</td>
-                                    <td>{{todo.email}}</td> 
-                                    <td>{{todo.mobile}}</td>  
+                                    <td>{{group.name}}</td>                           
           </tr>
             </tbody>
           </table>
@@ -72,7 +69,8 @@
                         
                       </div>
                 </div>
-           </div>            
+           </div>
+              <a href = '#/create_group'>create_groups</a>
          </div>
        </div>
      </div>

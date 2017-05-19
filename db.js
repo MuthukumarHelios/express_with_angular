@@ -4,17 +4,18 @@ var Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 //==>user Collection is meant for the registration form
 var user = new Schema({
-   countryCode        :Number,
-   os                 :String,
-   buildVersion       :Number,
-   pushNotificationId :String,
+   participantId      : Number,
+   countryCode        : Number,
+   os                 : String,
+   buildVersion       : Number,
+   pushNotificationId : String,
    status             :String,
    isOnline           :String,
    lastSeen           :Date,
    name               :String,
    email              :String,
    mobile             :Number,
-   password           :String
+   password           :String,
 });
 //these db shows the details that show by the group created by users
 var Group = new Schema({
@@ -22,9 +23,10 @@ var Group = new Schema({
      image       :String,
      groupId     :String,
      createdBy   :Number,
-     createdAt   :Date
+     createdAt   :Date,
 });
-var GroupParticipants = new Schema({
+
+var GroupParticipants  =  new Schema({
     groupId       :  String,
     joinedAt      :  Date,
     addedBy       :  String,
@@ -34,12 +36,8 @@ var GroupParticipants = new Schema({
 mongoose.model('user', user);
 mongoose.model('group', Group);
 mongoose.model('group_participants', GroupParticipants);
-console.log("after mongoose model");
+
 mongoose.connect('mongodb://localhost/ZoeChat_adminPannel', function (err, db){
-  if(err){
-           console.log("not connected");
-       }
-  else{
-            console.log("connected with mongodb");
-        }
+  if(err){console.log("not connected");
+       }else{console.log("connected with mongodb");}
 });

@@ -28,7 +28,6 @@ app.use(multer().array());
 //app.use(multer().single());
 var upload = multer({ dest:'uploads/'});
 app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,46 +35,26 @@ app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse applicati
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use('/', index);
-//app.use('/users', users);
-//go along with routes here for the express
+//user credentials api
 app.get('/api/todos'   ,              controller.display);//with find method in index.js controoler
-// app.get('/users', function(req, res){
-//   res.sendFile(path.join(__dirname, './', 'views', 'users.html'));
-// });
-// app.get('/userDetails', function(req, res){
-//    res.sendFile(path.join(__dirname, './', 'views', 'userDetails.html'));
-// });
-app.post('/userDetails/display/:id', controller.userDetails);
-// app.get('/userDetails/:id', function(req, res){
-//   res.sendFile(path.join(__dirname, './', 'views', 'userDetails.html'));
-// });
-app.post('/api/todos'  ,    controller.create);
-    // app.get('/register', function (req, res){
-    //        console.log("general file to display register angular");
-    //        res.sendFile(path.join(__dirname, './', 'views', 'register.html'));
-    //  });
+app.post('/userDetails/display/:id',  controller.userDetails);
+app.post('/api/todos'  ,              controller.create);
 app.post('/api/login'   ,             controller.login);
-// app.get('/login',  function(req, res){
-//    res.sendFile(path.join(__dirname, './', 'views', 'login.html'));
-// });
 app.post('/api/delete'  ,             controller.delete);
 app.post('/api/edit',                 controller.edit);
+//group credentials api
 app.post('/api/group/create',         controller.createGroup);
 app.post('/api/group/participants',   controller.createParticipants);
+app.post('/api/group/display', 		  controller.display_groups);
 //image upload test using the multer package
 //the below 2 routes are not working for file upload
-app.post('/file',    upload.single('avatar'),         controller.file_uploads);
+
+
+
+
 app.get('*', function(req, res){
  res.sendFile(path.join(__dirname, './', 'views', 'index.html'));
 });
-
-// app.get('/file_show', function(req, res){
-//   res.sendFile(path.join(__dirname, './', 'views', 'file.html'));
-// });
-
-//display the dynamic html files
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;

@@ -15,7 +15,7 @@
  <!--Template style-->
        <link href="css/style.css" rel="stylesheet">
        </head>
-  <body ng-controller = "maincontroller">
+  <body>
           <div class="display-table">
             <div class="vertical-middle">
               <div class="container">
@@ -31,7 +31,7 @@
                                  <label for = ""  class="">name</label>
                                 </div>
                                 <div class="input-field col s12">
-                                  <input id="password" type="password" ng-model  =  "formdata.password" class="validate">
+                    <input id="password" type="password" ng-model  =  "formdata.password" class="validate">
                                   <label for=""  class="">Password</label>
                                </div>
                                <div class="input-field col s12">
@@ -43,8 +43,8 @@
                                    <label for="mobile">mobile</label>
                                </div>
                                  <div class="col s12 right-align margin-b-20">
-                                   <button type="submit" class="waves-effect waves-light btn teal btn-block" ng-click = "registerUser()">create Account</button>
-                                       <a href="login">login</a>
+                      <button type="submit" class="waves-effect waves-light btn teal btn-block" ng-click = "registerUser()">create Account</button>
+                                       <a href="/users#/login">login</a>
                                  </div>
                                    <div class="col s12 center-align">
                                  </div>

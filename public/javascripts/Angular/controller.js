@@ -5,13 +5,20 @@ angular.module('todoController', ['todoservice'])
        console.log("calling the services inside Main controller", user);
            $scope.formdata = {};
               user.get().success(function(data){
-                $scope.user = data;
+                //shows the how many number of users present in the db
+                  $scope.user = data;
+                //count the number of users
+                 $scope.count = data.length;
       });
   //error hander is used but called the get service
-       user.get().error(function(data){
+           user.get().error(function(data){
          console.log("error occured in get method");
         });
-    
+           //this is the just normal grou
+           user.display_group().success(function(data){
+            console.log("group details", data);
+             $scope.group = data;
+           })
 $scope.registerUser = function(){
            //create todo check whether the formdata is recieved or not
       if($scope.formdata.name && $scope.formdata.password && $scope.formdata.mobile && $scope.formdata.email !== undefined){
@@ -32,12 +39,12 @@ $scope.loginUser = function(){
         //checking the json response with error flag with communicating api
                     if(!$scope.user.error){
                          console.log($scope.user);
-                          //$window.location.href = '/users';
+                           $state.go("users");
+                           $scope.formdata = {};
                               console.log("loggged in");
                              }
                        else{alert("not an valid credential");}
             //empty the form data after click event passed
-        $scope.user = {};            
       });
     };
     $scope.userDetails_scope = function(getvals){                   
@@ -48,5 +55,7 @@ $scope.loginUser = function(){
 .controller('subcontroller',function($scope, $stateParams){
      //this controller is used to get the data from passing params form different state
     $scope.datagot= $stateParams.getval;
+}).controller('group_Ctrl', function($scope, user){
+   console.log("group_Ctrl is meant for creating groups");
 });
 
