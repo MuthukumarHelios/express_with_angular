@@ -30,5 +30,9 @@ angular.module('todoservice', [])
            //this is meant for the display services of all group details
                return $http.post('/api/group/display',data);                      
           },
+          //just going to display the  group participants
+          group_participants: function(){
+             return $http.post('/api/group/show/participants');
+          },
         }
   }]);

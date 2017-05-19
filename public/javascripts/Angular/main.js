@@ -5,6 +5,7 @@ angular.module('app',  ['todoController', 'ui.router']).
 config(function($stateProvider, $urlRouterProvider){
       $stateProvider.
       state('users', {
+        //used to display the all users
            url: '/',
            templateUrl: '/view/users.html',
            controller:'maincontroller',
@@ -15,17 +16,24 @@ config(function($stateProvider, $urlRouterProvider){
       	   controller: 'subcontroller',//controller always belongs to view not to state
           params: {getval: null}
        }).state('register',{
-             url:'/register',
-             templateUrl: '/view/register.html',
-             controller: 'maincontroller'       	
+        //used to register the users
+          url:'/register',
+          templateUrl: '/view/register.html',
+          controller:  'maincontroller'       	
        }).state('login',{
+        //login with user credentials state
        	  url:'/login',
        	  templateUrl: '/view/login.html',
        	  controller: 'maincontroller'
        }).state('display_group',{
-             url: '/groups',
-             templateUrl: '/view/display_group.html',
-             controller: 'maincontroller'
+        //just all available display groups 
+           url: '/groups',
+           templateUrl: '/view/display_group.html',
+           controller: 'maincontroller'
+       }).state('group_participants',{
+           url: '/group_participants',
+           templateUrl: '/view/group_participants.html',
+           controller: 'maincontroller'
        });
       $urlRouterProvider.otherwise('/');
   });

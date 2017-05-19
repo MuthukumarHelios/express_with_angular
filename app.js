@@ -31,20 +31,20 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
-//app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //user credentials api
-app.get('/api/todos'   ,              controller.display);//with find method in index.js controoler
-app.post('/userDetails/display/:id',  controller.userDetails);
-app.post('/api/todos'  ,              controller.create);
-app.post('/api/login'   ,             controller.login);
-app.post('/api/delete'  ,             controller.delete);
-app.post('/api/edit',                 controller.edit);
+app.get('/api/todos'   ,                   controller.display);//with find method in index.js controoler
+app.post('/userDetails/display/:id',       controller.userDetails);
+app.post('/api/todos'  ,                   controller.create);
+app.post('/api/login'   ,                  controller.login);
+app.post('/api/delete'  ,                  controller.delete);
+app.post('/api/edit',                      controller.edit);
 //group credentials api
-app.post('/api/group/create',         controller.createGroup);
-app.post('/api/group/participants',   controller.createParticipants);
-app.post('/api/group/display', 		  controller.display_groups);
+app.post('/api/group/create',             controller.createGroup);
+app.post('/api/group/participants',       controller.createParticipants);
+app.post('/api/group/display', 		      controller.display_groups);
+app.post('/api/group/show/participants',  controller.group_participants);
 //image upload test using the multer package
 //the below 2 routes are not working for file upload
 

@@ -18,7 +18,12 @@ angular.module('todoController', ['todoservice'])
            user.display_group().success(function(data){
             console.log("group details", data);
              $scope.group = data;
-           })
+           });
+           user.group_participants().success(function(data){
+    //the below users_docs is used to display the participants of the particular groups
+                   $scope.group_participants = data[0].users_docs[0];
+                    
+           });
 $scope.registerUser = function(){
            //create todo check whether the formdata is recieved or not
       if($scope.formdata.name && $scope.formdata.password && $scope.formdata.mobile && $scope.formdata.email !== undefined){
@@ -52,7 +57,7 @@ $scope.loginUser = function(){
         $state.go("list",{'getval': getvals});     
     }; 
 })
-.controller('subcontroller',function($scope, $stateParams){
+.controller('subcontroller', function($scope, $stateParams){
      //this controller is used to get the data from passing params form different state
     $scope.datagot= $stateParams.getval;
 }).controller('group_Ctrl', function($scope, user){

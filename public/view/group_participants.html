@@ -32,9 +32,7 @@
                   </li>
             
                   <li class="no-padding"><a class="waves-effect waves-grey" href="users"><i class="material-icons">account_circle</i>Users</a></li>
-      <li class="no-padding"><a class="waves-effect waves-grey" ui-sref="display_group"><i class="material-icons">comment</i>groups</a></li>
-                  
-                 
+<li class="no-padding"><a class="waves-effect waves-grey" ui-sref="display_group"><i class="material-icons">comment</i>groups</a></li>       
         <li class="footer center"><span class="grey-text">&copy; 2016-2017. Company Name</span></li>
               </ul>
           </div>
@@ -48,24 +46,20 @@
                  <div class="col s12">
                      <div class="card">
                          <div class="card-content">
-                             <h3 class="card-title">Users</h3>
+                             <h3 class="card-title"></h3>
                            <div>
                                 <table id="datatable" class="bordered dt-responsive nowrap">
                                          <thead>
                                              <tr>
                                                  <th>S.No</th>
-                                                 <th>GROUP name</th>
+                                              <th>group participants name</th>
                                              </tr>
                                          </thead>
-                                         <tbody>
-                                         <h2>groups{{group[0].name}}</h2>
-        <tr ng-repeat = "group in group" ui-sref = "group_participants">
-                                    <td>{{$index + 1}}</td>
-                                    <td>{{group.name}}</td>                    
-                                     <td><a ui-sref = "group_participants">participants</a></td>
-          </tr>
-            </tbody>
-          </table>
+                                 <tbody>
+                                      <td>1</td>
+                                      <td>{{group_participants.name}}</td>
+                               </tbody>
+                   </table>
                        
                       </div>
                 </div>

@@ -5,12 +5,11 @@ console.log("controller.js");
 var user                = mongoose.model('user');
 var group               = mongoose.model('group');
 var group_participants  = mongoose.model('group_participants');
-
 exports.display =  function(req, res){
             console.log("inside controller api/todos");
                  user.find(function(err, todo){
                        if(err){
-                          res.send(err.status);
+                          res.send("db exceptions");
                             }
                           else{
                                 res.json(todo);//return in json format
@@ -134,25 +133,19 @@ exports.createGroup = function(req, res){
     group.create({
         name: req.body.name, groupId: req.body.groupId, participantId: req.body.participantId
         }, function(err, rows){
-                     console.log(rows);
-                if(err) {res.json(err);}
-                 else{
-          //after creating this is used to set the dynamic content of the page
-          group.find(function(err, groups){
-              console.log("find==>groups", groups);
-                 if(err){ res.json("error");}
-                    else{ res.json(groups);}
-              });
-            }
-        });
+      console.log(rows);
+                if(err) {res.json("mongo exceptions");}
+        else{res.json(rows);}
+      });
 };
+
 exports.createParticipants = function(req, res){
   console.log("create Participants");
   group_participants.create({
     groupId: req.body.groupId, addedBy: req.body.addedBy, participantId:req.body.participantId
-  }, function(err, rows){
-    console.log(rows);
-    if(err){res.json("error occured");}
+      }, function(err, rows){
+             console.log(rows);
+      if(err){res.json("error occured");}
 
     else{
        group_participants.find(function(err, rows1){
@@ -163,14 +156,23 @@ exports.createParticipants = function(req, res){
        }
       });
 };
+//just to display a particular groups
 exports.display_groups = function(req, res){
    console.log("just display a users");
      group.find(function(err, groups){
            console.log(groups);
      if(err){
           res.json("not find in db");
-      } else{res.json(groups);}   
+      } else{res.json(groups);}
    });
 };
-
-//meant for file uploading
+exports.group_participants = function(req, res){
+  console.log("just display participants")
+  group_participants.aggregate(
+  {$lookup: { from: "users", localField: "participantId", foreignField: "participantId",
+     as:"users_docs"}},{$match: {participantId:+req.body.id}}, function(err, participants){
+                        console.log("inside aggregation");
+          if(err){res.json("db exceptions");}
+                     else{ console.log(participants);res.json(participants);}
+    });
+};
