@@ -2,21 +2,20 @@ console.log("app.js file");
 //db.js represents the total db schema
 require('./db.js');
 
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express       = require('express');
+var path          = require('path');
+var favicon       = require('serve-favicon');
+var logger        = require('morgan');
+var cookieParser  = require('cookie-parser');
+var bodyParser    = require('body-parser');
 
 // var index = require('./routes/index');
-var users = require('./routes/users');
-var multer = require('multer');
-var app = express();
-var path = require('path');
+var multer       = require('multer');
+var app          = express();
+var path         = require('path');
 
-var controller = require('./routes/controller.js')
-var methodOverride  =  require('method-override');
+var controller   = require('./routes/controller.js')
+//var methodOverride  =  require('method-override');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -26,13 +25,13 @@ app.set('view engine', 'jade');
 app.use(multer().array());
 //--->multer .single is depreciated for getting the details form the collection from postman
 //app.use(multer().single());
-var upload = multer({ dest:'uploads/'});
+var upload      = multer({ dest:'uploads/'});
 app.use(express.static('./public')); 		// set the static files location /public/img will be /img for users
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({type: 'application/vnd.api+json'})); // parse application/vnd.api+json as json
-app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
+//app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //user credentials api

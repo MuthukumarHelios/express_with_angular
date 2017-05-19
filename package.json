@@ -12,6 +12,8 @@
     "debug": "*",
     "express": "*",
     "multer": "*",
+    "bcrypt": "*",
+    "nodemon":"*",
     "mongoose": "*",
     "jade": "*",
     "morgan": "*",
