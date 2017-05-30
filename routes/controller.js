@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 require('../db.js');
 console.log("controller.js");
-var user                = mongoose.model('user');
-var group               = mongoose.model('group');
-var group_participants  = mongoose.model('group_participants');
+var user                =   mongoose.model('user');
+var group               =   mongoose.model('group');
+var group_participants  =   mongoose.model('group_participants');
 exports.display =  function(req, res){
             console.log("inside controller api/todos");
                  user.find(function(err, todo){
@@ -167,12 +167,34 @@ exports.display_groups = function(req, res){
    });
 };
 exports.group_participants = function(req, res){
-  console.log("just display participants")
-  group_participants.aggregate(
-  {$lookup: { from: "users", localField: "participantId", foreignField: "participantId",
-     as:"users_docs"}},{$match: {participantId:+req.body.id}}, function(err, participants){
+  console.log("just display participants");
+  group.aggregate(
+    {"$lookup": {
+        "from": "users",
+        "localField": "participantId",
+        "foreignField": "participantId",
+        "as": "users_doc"
+    }}, {$match:{groupId:req.params.id}}, function(err, participants){
+      console.log(req.params.id);
+        // user.find({groupId :req.params.id}, function(err, participants){
                         console.log("inside aggregation");
           if(err){res.json("db exceptions");}
-                     else{ console.log(participants);res.json(participants);}
+                     else{ console.log(participants[0].users_doc);res.json(participants);}
     });
+};
+//the below is just used to test the populate command
+exports.populate = function(req, res){
+  console.log("just test the populate command");
+       group.findOne({name: "name"}).populate('g_Id').exec(function(err, rows){
+         if(err){console.log("erro occcured");}
+           else{console.log(rows);res.json(rows);}
+  });
+};
+exports.active_users = function(req, res){
+  console.log("inside active users");
+    user.find({"isOnline": "1"}, function(err, result){
+      console.log(result);
+          if(err){res.json("db exception");}
+               else{res.json(result);}
+         });
 };

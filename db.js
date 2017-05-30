@@ -9,13 +9,13 @@ var user = new Schema({
    os                 : String,
    buildVersion       : Number,
    pushNotificationId : String,
-   status             :String,
-   isOnline           :String,
-   lastSeen           :Date,
-   name               :String,
-   email              :String,
-   mobile             :Number,
-   password           :String,
+   status             : String,
+   isOnline           : Number,
+   lastSeen           : Date,
+   name               : String,
+   email              : String,
+   mobile             : Number,
+   password           : String,
 });
 //these db shows the details that show by the group created by users
 var Group = new Schema({
@@ -25,7 +25,6 @@ var Group = new Schema({
      createdBy   :Number,
      createdAt   :Date,
 });
-
 var GroupParticipants  =  new Schema({
     groupId       :  String,
     joinedAt      :  Date,
@@ -38,6 +37,6 @@ mongoose.model('group', Group);
 mongoose.model('group_participants', GroupParticipants);
 
 mongoose.connect('mongodb://localhost/ZoeChat_adminPannel', function (err, db){
-  if(err){console.log("not connected");
-       }else{console.log("connected with mongodb");}
+  if(err){console.log("not connected");}
+  else{console.log("connected with mongodb");}
 });

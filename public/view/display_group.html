@@ -7,16 +7,16 @@
                          <ul class="left">
    <li><h1 class="logo-wrapper center-align"><a href="index-2.html" class="brand-logo">Company name</a></h1></li>
                       </ul>
-                      <ul class="right col s9 m3 nav-right-menu">
-              <li><a class='dropdown-button  dropdown-right' href='#' data-activates='dropdown'><img src='images/avatar-03.png' alt="" width="40"></a></li>
-              </ul>
-                         <!-- Dropdown Structure -->
-            <ul id='dropdown' class='dropdown-content profile-dropdown'>
-                             <li><a href="#!">Profile</a></li>
-                             <li><a href="#!">Settings</a></li>
-                             <li class="divider"></li>
-                             <li><a href="#!">Logout</a></li>
-             </ul>
+            <ul class="right col s9 m3 nav-right-menu">
+               <li><a class='dropdown-button  dropdown-right' href='#' data-activates='dropdown'><img src='images/avatar-03.png' alt="" width="40"></a></li>
+            </ul>
+               <!-- Dropdown Structure -->
+          <ul id='dropdown' class='dropdown-content profile-dropdown'>
+                    <li><a href="#!">Profile</a></li>
+                    <li><a href="#!">Settings</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#!">Logout</a></li>
+          </ul>
             </div>
             </nav>
              </div>
@@ -24,17 +24,16 @@
          <!--\\\\\\\\\\\\\\\\\\\\\\\\\\\\End top bar header\\\\\\\\\\\\\\\\\\\\\\\-->
 
   <!--\\\\\\\\\\\\\\\\\\\ Start left side nav\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
-      <aside id="slide-out" class="side-nav black fixed">
-          <div class="side-nav-wrapper">
+  <aside id="slide-out" class="side-nav black fixed">
+        <div class="side-nav-wrapper">
               <ul class="sidebar-menu collapsible collapsible-accordion" data-collapsible="accordion">
                   <li class="no-padding">
   <a href="index.html" class="waves-effect waves-grey active"><i class="material-icons">dashboard</i>Dashboard</a>
                   </li>
-            
                   <li class="no-padding"><a class="waves-effect waves-grey" href="users"><i class="material-icons">account_circle</i>Users</a></li>
-      <li class="no-padding"><a class="waves-effect waves-grey" ui-sref="display_group"><i class="material-icons">comment</i>groups</a></li>
-                  
-                 
+<li class="no-padding"><a class="waves-effect waves-grey" ui-sref="display_group"><i class="material-icons">comment</i>groups</a></li>
+
+
         <li class="footer center"><span class="grey-text">&copy; 2016-2017. Company Name</span></li>
               </ul>
           </div>
@@ -59,14 +58,17 @@
                                          </thead>
                                          <tbody>
                                          <h2>groups{{group[0].name}}</h2>
-        <tr ng-repeat = "group in group" ui-sref = "group_participants">
-                                    <td>{{$index + 1}}</td>
-                                    <td>{{group.name}}</td>                    
-                                     <td><a ui-sref = "group_participants">participants</a></td>
+         <tr ng-repeat = "group in group">
+                            <td>{{$index + 1}}</td>
+                            <td>{{group.name}}</td>
+                            <td>{{group.groupId}}</td>
+    <td> <a ui-sref = "group_participants({id: group.groupId})">participants</a></td>
+      <!-- <td><a ng-click="test(group)">participants</a></td> -->
+
           </tr>
             </tbody>
           </table>
-                       
+
                       </div>
                 </div>
            </div>

@@ -12,7 +12,7 @@ angular.module('todoservice', [])
           create: function(data){
               console.log("data is passing==>", data);
                   return $http.post('/api/todos', data);
-          },        
+          },
           login: function(data){
             console.log("login service", data);
             return $http.post('/api/login', data);
@@ -26,13 +26,13 @@ angular.module('todoservice', [])
             return $http.post('/api/delete', data);
           },
           //the below api is meant for group creation api with users return all the group
-        display_group: function(data){              
+        display_group: function(data){
            //this is meant for the display services of all group details
-               return $http.post('/api/group/display',data);                      
+               return $http.post('/api/group/display',data);
+          },
+          active_users: function(data){
+            return $http.post('/api/active_users', data);
           },
           //just going to display the  group participants
-          group_participants: function(){
-             return $http.post('/api/group/show/participants');
-          },
         }
   }]);

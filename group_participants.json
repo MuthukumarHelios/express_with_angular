@@ -1,0 +1,89 @@
+
+
+[{
+    "_id": "591abcd12e6e7f0f2cbd26ed",
+    "groupId": "be663a39-92a0-43a1-bcf2-2363def04d70",
+    "joinedAt": 1494924497822,
+    "addedBy": "917299393700",
+    "participantId": "919884404148",
+    "userinfo": [
+      {
+        "_id": "919884404148",
+        "mobileNumber": "9884404148",
+        "countryCode": "91",
+        "os": "android",
+        "buildVersion": "1",
+        "name": "sathish",
+        "pushNotificationId": "cysS_XsJeSg:APA91bFCo2O-8Ol4TD47VFlkJQD1M7A4Cl3bGxo7-xu4qwdfefi0coXTJFeWUNNx9qCQ9iNkQlPyIIaKw_Am8GoHXGGMCJ7wXhdLBB4md9Fo0Wlv0VuPfRnatSoZlPOhBFwXgyZfro5P",
+        "status": "Hey there! I am on Zoechat!",
+        "isOnline": 0,
+        "lastSeen": 1495210189934,
+        "zoechatid": "919884404148",
+        "image": "https://s3.ap-northeast-2.amazonaws.com/zoechats/1494924584490.jpg"
+      }
+    ]
+  },
+  {
+    "_id": "591abcd12e6e7f0f2cbd26f5",
+    "groupId": "5c2cd7ee-f7e2-4ef1-ae5c-23e2047c31c4",
+    "joinedAt": 1494924497823,
+    "addedBy": "917299393700",
+    "participantId": "919566048758",
+    "userinfo": [
+      {
+        "_id": "919566048758",
+        "mobileNumber": "9566048758",
+        "countryCode": "91",
+        "os": "android",
+        "buildVersion": "0",
+        "name": "prince",
+        "pushNotificationId": "e-oi3-3Js-Y:APA91bGlDWyhitzhjGzYzQVnoDirn7W4wmjOEp7oOq5a_aulm-nnO64JTewZOIpyWFCcZ8wQHjXWvPxFHx0rWXr04JVzKvZVj2n8f1ll0IfejHRcmKu-Uf-7zcU0FerL5FYB0GIp2KNb",
+        "lastSeen": 1496106848530,
+        "isOnline": 0,
+        "status": "Hey there! I am on Zoechat!"
+      }
+    ]
+  },
+  {
+    "_id": "591abcd12e6e7f0f2cbd26f6",
+    "groupId": "be663a39-92a0-43a1-bcf2-2363def04d70",
+    "joinedAt": 1494924497822,
+    "addedBy": "917299393700",
+    "participantId": "917299393700",
+    "userinfo": [
+      {
+        "_id": "917299393700",
+        "countryCode": "91",
+        "pushNotificationId": "fr8-Ce4iZ2Q:APA91bFMA8ZZ0QhaY6v4mAC7ivMP9_AYK61ofqiduIh2kX1H6Sz32BTF1Ui-29Ve2Bz0Ls_Zi5wzrClIK8IxsgGH9NQM850HFDXLAoTZyd4k-JVr6JJmR-ldo5lieLkJTr21lVZO8UI_",
+        "os": "ios",
+        "buildVersion": "5",
+        "name": "Krishanthan",
+        "mobileNumber": "7299393700",
+        "lastSeen": 1496008651707,
+        "isOnline": 1,
+        "status": "Hey there! I am on Zoechat!"
+      }
+    ]
+  },
+  {
+    "_id": "591abcd12e6e7f0f2cbd26f7",
+    "groupId": "0aeee72d-d39b-408e-ae52-de2caaba2a31",
+    "joinedAt": 1494924497823,
+    "addedBy": "917299393700",
+    "participantId": "919566048758",
+    "userinfo": [
+      {
+        "_id": "919566048758",
+        "mobileNumber": "9566048758",
+        "countryCode": "91",
+        "os": "android",
+        "buildVersion": "0",
+        "name": "prince",
+        "pushNotificationId": "e-oi3-3Js-Y:APA91bGlDWyhitzhjGzYzQVnoDirn7W4wmjOEp7oOq5a_aulm-nnO64JTewZOIpyWFCcZ8wQHjXWvPxFHx0rWXr04JVzKvZVj2n8f1ll0IfejHRcmKu-Uf-7zcU0FerL5FYB0GIp2KNb",
+        "lastSeen": 1496106848530,
+        "isOnline": 0,
+        "status": "Hey there! I am on Zoechat!"
+      }
+    ]
+  }
+]

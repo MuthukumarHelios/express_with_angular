@@ -17,19 +17,12 @@
     "mongoose": "*",
     "jade": "*",
     "morgan": "*",
-    "serve-favicon": "*"
+    "serve-favicon": "*",
+    "angular-smart-table":"*"
   },
   "description": "just a login page with angular with proper angular structure",
   "main": "app.js",
   "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Muthukumars1994/express_with_angular.git"
-  },
   "author": "Muthukumar",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Muthukumars1994/express_with_angular/issues"
-  },
-  "homepage": "https://github.com/Muthukumars1994/express_with_angular#readme"
+  "license": "ISC"
 }

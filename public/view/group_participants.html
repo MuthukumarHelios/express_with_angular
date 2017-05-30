@@ -1,4 +1,4 @@
-<body ng-controller = "maincontroller">
+<body ng-controller = "group_Ctrl">
   <!--\\\\\\\\\\\\\\\\\\\\\\\\\\\\Start top bar header\\\\\\\\\\\\\\\\\\\\\\\-->
          <header id="header" class="top-bar">
              <div class="navbar-fixed">
@@ -52,12 +52,16 @@
                                          <thead>
                                              <tr>
                                                  <th>S.No</th>
-                                              <th>group participants name</th>
+                                          <th>group participants name</th>
+                                          <th>email</th>
+                                          <th>contact</th>   
                                              </tr>
                                          </thead>
                                  <tbody>
                                       <td>1</td>
-                                      <td>{{group_participants.name}}</td>
+                                <td>{{group_participants.name}}</td>
+                                <td>{{group_participants.email}}</td>
+                                  <td>{{group_participants.mobile}}</td>
                                </tbody>
                    </table>
                        

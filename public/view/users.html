@@ -1,4 +1,9 @@
 <body ng-controller = "maincontroller">
+
+
+<div class="gridStyle" ng-grid="gridOptions">
+<div class="col s12 m6 l3 margin-b-30">
+
   <!--\\\\\\\\\\\\\\\\\\\\\\\\\\\\Start top bar header\\\\\\\\\\\\\\\\\\\\\\\-->
          <header id="header" class="top-bar">
              <div class="navbar-fixed">
@@ -7,16 +12,16 @@
                          <ul class="left">
    <li><h1 class="logo-wrapper center-align"><a href="index-2.html" class="brand-logo">Company name</a></h1></li>
                       </ul>
-                      <ul class="right col s9 m3 nav-right-menu">
-              <li><a class='dropdown-button  dropdown-right' href='#' data-activates='dropdown'><img src='images/avatar-03.png' alt="" width="40"></a></li>
+      <ul class="right col s9 m3 nav-right-menu">
+<li><a class='dropdown-button  dropdown-right' href='#' data-activates='dropdown'><img src='images/avatar-03.png' alt="" width="40"></a></li>
               </ul>
-                         <!-- Dropdown Structure -->
-            <ul id='dropdown' class='dropdown-content profile-dropdown'>
-                             <li><a href="#!">Profile</a></li>
-                             <li><a href="#!">Settings</a></li>
-                             <li class="divider"></li>
-                             <li><a href="#!">Logout</a></li>
-             </ul>
+    <!-- Dropdown Structure -->
+          <ul id='dropdown' class='dropdown-content profile-dropdown'>
+              <li><a href="#!">Profile</a></li>
+              <li><a href="#!">Settings</a></li>
+              <li class="divider"></li>
+              <li><a href="#!">Logout</a></li>
+          </ul>
             </div>
             </nav>
              </div>
@@ -30,52 +35,90 @@
                   <li class="no-padding">
   <a href="index.html" class="waves-effect waves-grey active"><i class="material-icons">dashboard</i>Dashboard</a>
                   </li>
-            
-                  <li class="no-padding"><a class="waves-effect waves-grey" href="users"><i class="material-icons">account_circle</i>Users</a></li>
+  <li class="no-padding"><a class="waves-effect waves-grey" href="users"><i class="material-icons">account_circle</i>Users</a></li>
       <li class="no-padding"><a class="waves-effect waves-grey" ui-sref="display_group"><i class="material-icons">comment</i>groups</a></li>
-                  
-                 
+
+
         <li class="footer center"><span class="grey-text">&copy; 2016-2017. Company Name</span></li>
               </ul>
           </div>
       </aside>
-      <a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
-      <!--//////////////////End left side nav/////////////////-->
+<a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only">  <i class="material-icons">menu</i></a>
+ <!--//////////////////End left side nav/////////////////-->
+
+
+        </div>
+
  <!--\\\\\\\\\\\\\\\\\\\\\\\\\\\\Main content Start\\\\\\\\\\\\\\\\\\\\\\\-->
      <main class="main-content">
          <div class="page-content">
+     <!-- the below div used is bootstrap -->
+     <div class="row">
+            <div class="col s6">
+              <div class="widget_1 z-depth-1 clearfix" >
+                <i class="material-icons green-text">grade</i>
+                  <div class="content">
+                      <h1 class="margin-v-0">{{count}}</h1>
+                      <span>Total</span>
+                      <span>users</span>
+                  </div>
+              </div><!--/widget-->
+            </div>
+          <div class="col s6">
+              <div class="widget_1 z-depth-1 clearfix" >
+                <i class="material-icons green-text">grade</i>
+                  <div class="content">
+                       <h1 class="margin-v-0">{{active_users_count}}</h1>
+                       <span>Active</span>
+                       <span>users</span>
+                 </div>
+              </div><!--/widget-->
+          </div>
+      </div>
+
              <div class="row margin-b-0">
                  <div class="col s12">
                      <div class="card">
                          <div class="card-content">
                              <h3 class="card-title">Users</h3>
-                           <div>
-                                <table id="datatable" class="bordered dt-responsive nowrap">
-                                         <thead>
-                                             <tr>
-                                                 <th>S.No</th>
-                                                 <th>User name</th>
-                                                 <th>Email</th>
-                                                 <th>Contact</th>
-                                             </tr>
-                                         </thead>
-                                         <tbody>
-        <tr ng-repeat = "todo in user" ng-click = "userDetails_scope(todo)">
-                                    <td>{{$index + 1}}</td>
-                                    <td>{{todo.name}}</td>
-                                    <td>{{todo.email}}</td> 
-                                    <td>{{todo.mobile}}</td>  
+                          <div>
+<!-- this is the widget for displaying total number of users -->
+
+
+
+ <div class="table-container">
+  <table  st-table="user" st-pagination-scroll  st-pipe="callServer" class="table table-striped">
+    <thead>
+    <tr style="color:green">          <!-- class="form-control"
+ -->
+
+ <th colspan="5"><input st-search="" placeholder="global search ..." type="text"/></th>
+            </tr>
+               <tr>
+                  <th>S.No</th>
+                  <th st-sort="name">User name</th>
+                  <th st-sort="email">Email</th>
+                  <th st-sort="mobile">Contact</th>
+               </tr>
+            </thead>
+      <tbody>
+          <tr ng-repeat = "todo in user" ng-click = "userDetails_scope(todo)">
+                <td>{{$index + 1}}</td>
+                <td>{{todo.name}}</td>
+                <td>{{todo.email}}</td>
+                <td>{{todo.mobile}}</td>
           </tr>
-            </tbody>
-          </table>
-                        <h1>Number of users{{count}}</h1>
-                        
+        </tbody>
+      </table>
+       </div>
+
+
                       </div>
                 </div>
-           </div>            
+           </div>
          </div>
        </div>
      </div>
-
+   </div>
   </body>
   </html>
